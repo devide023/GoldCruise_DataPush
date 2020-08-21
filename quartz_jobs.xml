@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+<processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+  <schedule>
+    <job>
+      <name>datapush</name>
+      <group>datapush</group>
+      <description>数据推送</description>
+      <job-type>GoldCruise_DataPush.CruiseDataPushJob,GoldCruise_DataPush</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+    </job>
+    <trigger>
+      <cron>
+        <name>datapushjob</name>
+        <group>datapush</group>
+        <job-name>datapush</job-name>
+        <job-group>datapush</job-group>
+        <cron-expression>0 */2 * * * ?</cron-expression>
+      </cron>
+    </trigger>
+  </schedule>
+</job-scheduling-data>
