@@ -96,6 +96,8 @@
   <ItemGroup>
     <Compile Include="DB\DAO.cs" />
     <Compile Include="Jobs\CruiseDataPushJob.cs" />
+    <Compile Include="Models\sys_guest.cs" />
+    <Compile Include="Models\sys_ship.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
