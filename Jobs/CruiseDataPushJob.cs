@@ -25,14 +25,9 @@ namespace GoldCruise_DataPush
             {
                 try
                 {
-                    CruisePushService service = new CruisePushService();
-                    var list = service.Get_GusetBy_Hc("G320191001");
-                    var ser = new XmlSerializer(typeof(List<sys_guest>));
-                    using (TextWriter tw = new StringWriter())
-                    {
-                        ser.Serialize(tw, list);
-                        log.Info(tw.ToString());
-                    }                    
+                    NewCruiseService service = new NewCruiseService();
+                    var list = service.MysqlTest();
+                    log.Info(list.ToList().Count);                  
                 }
                 catch (Exception e)
                 {
