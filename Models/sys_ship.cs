@@ -45,5 +45,9 @@ namespace GoldCruise_DataPush.Models
         /// 上下水
         /// </summary>
         public string sxs{get;set; }
+        /// <summary>
+        /// 航线
+        /// </summary>
+        public string linename{get;set; }
     }
 }

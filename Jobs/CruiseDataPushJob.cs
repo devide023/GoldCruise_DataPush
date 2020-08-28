@@ -25,9 +25,13 @@ namespace GoldCruise_DataPush
             {
                 try
                 {
-                    NewCruiseService service = new NewCruiseService();
-                    var list = service.MysqlTest();
-                    log.Info(list.ToList().Count);                  
+                    LocalDbService service = new LocalDbService();
+                    List<dynamic> list = new List<dynamic>();
+                    list.Add(new { hcbh = "hc20200824", certno = "11" });
+                    list.Add(new { hcbh = "hc20200824", certno = "12" });
+                    list.Add(new { hcbh = "hc20200824", certno = "13" });
+                    bool ret = service.add(list);
+                    log.Info("---ok---");        
                 }
                 catch (Exception e)
                 {

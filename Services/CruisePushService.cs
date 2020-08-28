@@ -61,7 +61,7 @@ namespace GoldCruise_DataPush
                 sql.Append("       (SELECT id \n");
                 sql.Append("        FROM   [cjhjyl].[dbo].[订单表] \n");
                 sql.Append("        WHERE  编号10位 = @hcbh \n");
-                sql.Append("               AND 状态 = '订单确认') t2 \n");
+                sql.Append("               AND 状态 in ('订单确认','付定金','付全款')) t2 \n");
                 sql.Append("WHERE  t2.id = t1.订单id");
                 return conn.Query<sys_guest>(sql.ToString(),new { hcbh=hcbh});
             }
