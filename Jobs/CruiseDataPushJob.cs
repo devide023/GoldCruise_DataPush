@@ -15,23 +15,30 @@ namespace GoldCruise_DataPush
     public class CruiseDataPushJob : IJob
     {
         private ILog log;
+        private Services.PushDataService pds;
         public CruiseDataPushJob()
         {
             log = LogManager.GetLogger(this.GetType());
+            pds = new Services.PushDataService();
+            pds.fromdb = FromDB.老系统;
         }
         public Task Execute(IJobExecutionContext context)
         {
             return Task.Run(() =>
             {
                 try
-                {
-                    LocalDbService service = new LocalDbService();
-                    List<dynamic> list = new List<dynamic>();
-                    list.Add(new { hcbh = "hc20200824", certno = "11" });
-                    list.Add(new { hcbh = "hc20200824", certno = "12" });
-                    list.Add(new { hcbh = "hc20200824", certno = "13" });
-                    bool ret = service.add(list);
-                    log.Info("---ok---");        
+                {                    
+                    CruisePushService services = new CruisePushService();
+                    List<sys_ship> list = services.GetDayShipList();
+                    foreach (var item in list)
+                    {
+                        string hcbh = item.hcbh.Replace("HC", "");
+                        var guests = services.Get_GusetBy_Hc(hcbh);
+                        sys_push_entity push_entity = new sys_push_entity();
+                        push_entity.ship = item;
+                        push_entity.guests = guests.ToList();
+                        pds.PushDataTo(push_entity);
+                    }     
                 }
                 catch (Exception e)
                 {

@@ -136,8 +136,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\DAO.cs" />
+    <Compile Include="Enums\Sys_Enums.cs" />
+    <Compile Include="Interface\ICheckPushData.cs" />
+    <Compile Include="Interface\IPushData.cs" />
     <Compile Include="Jobs\CruiseDataPushJob.cs" />
+    <Compile Include="Jobs\NewCruiseDataPushJob.cs" />
+    <Compile Include="Models\pushdatainfo.cs" />
     <Compile Include="Models\sys_guest.cs" />
+    <Compile Include="Models\sys_push_entity.cs" />
     <Compile Include="Models\sys_ship.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -153,9 +159,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CheckPushService.cs" />
     <Compile Include="Services\CruisePushService.cs" />
     <Compile Include="Services\LocalDbService.cs" />
     <Compile Include="Services\NewCruiseService.cs" />
+    <Compile Include="Services\PushDataService.cs" />
     <Compile Include="Tool\Tool.cs" />
   </ItemGroup>
   <ItemGroup>

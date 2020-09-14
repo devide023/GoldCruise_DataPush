@@ -66,5 +66,7 @@ namespace GoldCruise_DataPush
                 return conn.Query<sys_guest>(sql.ToString(),new { hcbh=hcbh});
             }
         }
+
+       
     }
 }
