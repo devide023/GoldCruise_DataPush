@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldCruise_DataPush", "GoldCruise_DataPush.csproj", "{0A1B6284-6D7A-4596-BF03-7FD65732A19C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{1400BE44-D211-4140-B1B3-8D5FC19C0668}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{0A1B6284-6D7A-4596-BF03-7FD65732A19C}.Release|x64.Build.0 = Release|x64
 		{0A1B6284-6D7A-4596-BF03-7FD65732A19C}.Release|x86.ActiveCfg = Release|x86
 		{0A1B6284-6D7A-4596-BF03-7FD65732A19C}.Release|x86.Build.0 = Release|x86
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Debug|x64.Build.0 = Debug|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Debug|x86.Build.0 = Debug|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Release|x64.ActiveCfg = Release|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Release|x64.Build.0 = Release|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Release|x86.ActiveCfg = Release|Any CPU
+		{1400BE44-D211-4140-B1B3-8D5FC19C0668}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

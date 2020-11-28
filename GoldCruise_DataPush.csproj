@@ -88,6 +88,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.Crypto.dll.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
@@ -135,12 +139,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ApiUrl.cs" />
     <Compile Include="DB\DAO.cs" />
     <Compile Include="Enums\Sys_Enums.cs" />
     <Compile Include="Interface\ICheckPushData.cs" />
     <Compile Include="Interface\IPushData.cs" />
     <Compile Include="Jobs\CruiseDataPushJob.cs" />
     <Compile Include="Jobs\NewCruiseDataPushJob.cs" />
+    <Compile Include="Models\apitokenobj.cs" />
+    <Compile Include="Models\api_hcinfo.cs" />
+    <Compile Include="Models\api_passenger.cs" />
     <Compile Include="Models\pushdatainfo.cs" />
     <Compile Include="Models\sys_guest.cs" />
     <Compile Include="Models\sys_push_entity.cs" />
@@ -159,11 +167,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\CheckPushService.cs" />
     <Compile Include="Services\CruisePushService.cs" />
     <Compile Include="Services\LocalDbService.cs" />
     <Compile Include="Services\NewCruiseService.cs" />
     <Compile Include="Services\PushDataService.cs" />
+    <Compile Include="Tool\SM3.cs" />
     <Compile Include="Tool\Tool.cs" />
   </ItemGroup>
   <ItemGroup>

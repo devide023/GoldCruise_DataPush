@@ -25,6 +25,43 @@ namespace GoldCruise_DataPush
             }
         }
 
+        public static string HttpPostWithHeader(string url, string postdata,string token)
+        {
+            var result = string.Empty;
+            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+            if (request == null)
+            {
+                throw new ApplicationException(
+                string.Format("Invalid url string: {0}", url)
+                );
+            }
+            //注意提交的编码 这边是需要改变的 这边默认的是Default：系统当前编码
+            byte[] postData = Encoding.UTF8.GetBytes(postdata);
+
+            Encoding myEncoding = Encoding.UTF8;
+            request.Method = "POST";
+            request.Headers.Add("Authorization", token);
+            request.ContentType = "application/json";
+            request.ContentLength = postData.Length;
+            // 提交请求数据 
+            System.IO.Stream outputStream = request.GetRequestStream();
+            outputStream.Write(postData, 0, postData.Length);
+            outputStream.Close();
+
+            HttpWebResponse response;
+            Stream responseStream;
+            StreamReader reader;
+            string srcString;
+            response = request.GetResponse() as HttpWebResponse;
+            responseStream = response.GetResponseStream();
+            reader = new System.IO.StreamReader(responseStream, Encoding.GetEncoding("UTF-8"));
+            srcString = reader.ReadToEnd();
+            result = srcString;   //返回值赋值
+            reader.Close();
+
+            return result;
+        }
+
         public static string HttpPost(string Url, string postDataStr)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
@@ -62,7 +99,7 @@ namespace GoldCruise_DataPush
             
             Encoding myEncoding = Encoding.UTF8;
             request.Method = "POST";
-            request.ContentType = "text/xml";
+            request.ContentType = "application/json";
             request.ContentLength = postData.Length;
             // 提交请求数据 
             System.IO.Stream outputStream = request.GetRequestStream();

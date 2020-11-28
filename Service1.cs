@@ -1,4 +1,6 @@
-﻿using log4net;
+﻿using GoldCruise_DataPush.SM;
+using log4net;
+using Org.BouncyCastle.Utilities.Encoders;
 using Quartz;
 using Quartz.Impl;
 using System;
@@ -10,7 +12,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
-
+using Newtonsoft.Json;
 namespace GoldCruise_DataPush
 {
     public partial class DataPushService : ServiceBase
@@ -43,7 +45,7 @@ namespace GoldCruise_DataPush
             }
             catch (Exception e)
             {
-                Tool.WriteLog(e.Message);
+                logger.Error(e.Message);
             }
         }
 
